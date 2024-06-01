@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+        .download-button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 85%;
+        }
+
+        .download-button:hover {
+            background-color: #005f6b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quote Records</h1>
+    <form action="/download_quotes" method="post">
+        <button type="submit" class="download-button">Download as Excel</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Index</th>
+                <!-- <th>Time Stamp</th> -->
+                <th>Name</th>
+                <th>Business Name</th>
+                <th>Email</th>
+                <th>Business Type</th>
+                <th>Phone</th>
+                <th>Annual Turnover</th>
+                <th>Company Registration</th>
+                <th>Bookkeeping</th>
+                <th>VAT Returns</th>
+                <th>Payroll</th>
+                <th>Payslips Per Month</th>
+                <th>Service Duration</th>
+                <th>Quote Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% quotes.forEach((quote, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <!-- <td><%= quote.timestamp%></td> -->
+                    <td><%= quote.name %></td>
+                    <td><%= quote.businessName %></td>
+                    <td><%= quote.email %></td>
+                    <td><%= quote.businessType %></td>
+                    <td><%= quote.phone %></td>
+                    <td><%= quote.annualTurnover %></td>
+                    <td><%= quote.companyRegistration %></td>
+                    <td><%= quote.bookkeeping %></td>
+                    <td><%= quote.vatReturns %></td>
+                    <td><%= quote.payroll %></td>
+                    <td><%= quote.payslipsPerMonth %></td>
+                    <td><%= quote.serviceDuration %></td>
+                    <td><%= quote.quotePrice %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
