@@ -133,12 +133,14 @@ app.post('/quotes40', async (req, res) => {
 app.get('/quote40Records', checkSession, async (req, res) => {
   try {
     const quotes = await Quote40.find();
+    console.log('Quotes retrieved:', quotes); // Log the retrieved quotes
     res.render('quote40Records', { quotes40: quotes });
   } catch (err) {
-    console.error(err);
+    console.error('Error retrieving quotes:', err); // Log detailed error information
     res.status(500).send('Internal Server Error');
   }
 });
+
 // POST request to download quotes40 as an Excel file
 app.post('/download_quotes40', async (req, res) => {
   try {
