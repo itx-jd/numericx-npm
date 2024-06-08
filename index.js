@@ -174,7 +174,7 @@ app.post('/download_quotes40', async (req, res) => {
         quote.freeCompanyFormation,
         quote.annualTurnover,
         quote.vatReturns,
-        quote.payroll,
+        quote.payrollSelect,
         quote.numberOfEmployees,
         quote.pensionScheme,
         quote.numberOfEmployeesEnrolled,
