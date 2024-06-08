@@ -16,7 +16,7 @@ const Quote40Schema = new mongoose.Schema({
   pensionScheme: String,
   numberOfEmployeesEnrolled: String,
   bookkeeping: String,
-  numberOfTransactions: Number,
+  numberOfTransactions: String,
   quotePrice: String
 });
 
