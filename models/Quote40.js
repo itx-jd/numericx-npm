@@ -11,12 +11,12 @@ const Quote40Schema = new mongoose.Schema({
   freeCompanyFormation: String,
   annualTurnover: String,
   vatReturns: String,
-  payroll: String,
+  payrollSelect: String,
   numberOfEmployees: String,
   pensionScheme: String,
   numberOfEmployeesEnrolled: String,
   bookkeeping: String,
-  numberOfTransactions: String,
+  numberOfTransactions: Number,
   quotePrice: String
 });
 
