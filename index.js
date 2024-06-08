@@ -133,7 +133,7 @@ app.post('/quotes40', async (req, res) => {
 app.get('/quote40Records', checkSession, async (req, res) => {
   try {
     const quotes = await Quote40.find();
-    res.render('quote40Records', { quotes });
+    res.render('quote40Records', { quotes40: quotes });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
