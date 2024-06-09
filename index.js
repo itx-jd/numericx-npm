@@ -154,7 +154,7 @@ app.post('/download_quotes40', async (req, res) => {
     const headers = [
       'Timestamp', 'Name', 'Email', 'Phone', 'Business Type', 'Dormant', 'Non-Trading', 'Free Company Formation',
       'Annual Turnover', 'VAT Returns', 'Payroll', 'Number of Employees', 'Pension Scheme',
-      'Number of Employees Enrolled', 'Bookkeeping', 'Number of Transactions', 'Quote Price'
+      'Number of Employees Needing Enrollment', 'Bookkeeping', 'Number of Transactions', 'Quote Price'
     ];
     worksheet.addRow(headers);
 
@@ -177,7 +177,7 @@ app.post('/download_quotes40', async (req, res) => {
         quote.payrollSelect,
         quote.numberOfEmployees,
         quote.pensionScheme,
-        quote.numberOfEmployeesEnrolled,
+        quote.numberOfEmployeesEnrolling,
         quote.bookkeeping,
         quote.numberOfTransactions,
         quote.quotePrice
