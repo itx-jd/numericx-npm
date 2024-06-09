@@ -65,8 +65,8 @@
 </head>
 <body>
 
-    <h1>Quote 40 Records</h1>
-    <form action="/download_quotes40" method="post">
+    <h1>Quote 100 Records</h1>
+    <form action="/download_quotes100" method="post">
         <button type="submit" class="download-button">Download as Excel</button>
     </form>
     <table>
@@ -89,30 +89,30 @@
                 <th>Number of Employees Needing Enrollment</th>
                 <th>Bookkeeping</th>
                 <th>Number of Transactions</th>
-                <th>Discounted Quote Price</th>
+                <th>Quote Price</th>
             </tr>
         </thead>
         <tbody>
-            <% quotes40.forEach((quote40, index) => { %>
+            <% quotes100.forEach((quote100, index) => { %>
                 <tr>
                   <td><%= index + 1 %></td>
                   <!-- <td><%= quote40.timestamp %></td> -->
-                  <td><%= quote40.name %></td>
-                  <td><%= quote40.email %></td>
-                  <td><%= quote40.phone %></td>
-                  <td><%= quote40.businessType %></td>
-                  <td><%= quote40.dormant %></td>
-                  <td><%= quote40.nonTrading %></td>
-                  <td><%= quote40.freeCompanyFormation %></td>
-                  <td><%= quote40.annualTurnover %></td>
-                  <td><%= quote40.vatReturns %></td>
-                  <td><%= quote40.payrollSelect %></td>
-                  <td><%= quote40.numberOfEmployees %></td>
-                  <td><%= quote40.pensionScheme %></td>
-                  <td><%= quote40.numberOfEmployeesEnrolling %></td>
-                  <td><%= quote40.bookkeeping %></td>
-                  <td><%= quote40.numberOfTransactions %></td>
-                  <td><%= quote40.quotePrice %></td>
+                  <td><%= quote100.name %></td>
+                  <td><%= quote100.email %></td>
+                  <td><%= quote100.phone %></td>
+                  <td><%= quote100.businessType %></td>
+                  <td><%= quote100.dormant %></td>
+                  <td><%= quote100.nonTrading %></td>
+                  <td><%= quote100.freeCompanyFormation %></td>
+                  <td><%= quote100.annualTurnover %></td>
+                  <td><%= quote100.vatReturns %></td>
+                  <td><%= quote100.payrollSelect %></td>
+                  <td><%= quote100.numberOfEmployees %></td>
+                  <td><%= quote100.pensionScheme %></td>
+                  <td><%= quote100.numberOfEmployeesEnrolling %></td>
+                  <td><%= quote100.bookkeeping %></td>
+                  <td><%= quote190.numberOfTransactions %></td>
+                  <td><%= quote100.quotePrice %></td>
                 </tr>
               <% }); %>
               
