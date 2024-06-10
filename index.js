@@ -203,13 +203,11 @@ app.post('/download_quotes40', async (req, res) => {
 // CRUD for OneHundredPercentQuotes
 app.get('/quotes100', async (req, res) => {
   try {
-    console.log('Fetching Quote100 records1');
     const quotes = await Quote100.find();
-    console.log('Quotes fetched:', quotes);
     res.json(quotes);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Internal Server Error 1' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 app.post('/quotes100', async (req, res) => {
