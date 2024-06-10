@@ -224,7 +224,9 @@ app.post('/quotes100', async (req, res) => {
 // GET route to render quote100Records.ejs with all quotes
 app.get('/quote100Records', checkSession, async (req, res) => {
   try {
+    console.log('Fetching Quote100 records');
     const quotes = await Quote100.find();
+    console.log('Quotes fetched:', quotes);
     res.render('quote100Records', { quotes100: quotes });
   } catch (err) {
     console.error(err);
