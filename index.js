@@ -224,13 +224,12 @@ app.post('/quotes100', async (req, res) => {
 // GET route to render quote100Records.ejs with all quotes
 app.get('/quote100Records', checkSession, async (req, res) => {
   try {
-    console.log('Fetching Quote100 records');
     const quotes = await Quote100.find();
-    console.log('Quotes fetched:', quotes);
+    console.log('Quotes retrieved:', quotes); // Log the retrieved quotes
     res.render('quote100Records', { quotes100: quotes });
   } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error 2');
+    console.error('Error retrieving quotes:', err); // Log detailed error information
+    res.status(500).send('Internal Server Error');
   }
 });
 
