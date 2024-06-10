@@ -153,7 +153,7 @@ app.post('/download_quotes40', async (req, res) => {
 
     // Add headers
     const headers = [
-      'Timestamp', 'Name', 'Email', 'Phone', 'Business Type', 'Dormant', 'Non-Trading', 'Free Company Formation',
+      'Timestamp', 'Name', 'Email', 'Phone', 'Business Type', 'Dormant', 'Non-Trading', 'Free Company Formation', 'Number of Partners' ,
       'Annual Turnover', 'VAT Returns', 'Payroll', 'Number of Employees', 'Pension Scheme',
       'Number of Employees Needing Enrollment', 'Bookkeeping', 'Number of Transactions', 'Quote Price'
     ];
@@ -173,6 +173,7 @@ app.post('/download_quotes40', async (req, res) => {
         quote.dormant,
         quote.nonTrading,
         quote.freeCompanyFormation,
+        quote.numberOfPartners,
         quote.annualTurnover,
         quote.vatReturns,
         quote.payrollSelect,
@@ -244,7 +245,7 @@ app.post('/download_quotes100', async (req, res) => {
 
     // Add headers
     const headers = [
-      'Timestamp', 'Name', 'Email', 'Phone', 'Business Type', 'Dormant', 'Non-Trading', 'Free Company Formation',
+      'Timestamp', 'Name', 'Email', 'Phone', 'Business Type', 'Dormant', 'Non-Trading', 'Free Company Formation', 'Number of Partners',
       'Annual Turnover', 'VAT Returns', 'Payroll', 'Number of Employees', 'Pension Scheme',
       'Number of Employees Needing Enrollment', 'Bookkeeping', 'Number of Transactions', 'Quote Price'
     ];
@@ -264,6 +265,7 @@ app.post('/download_quotes100', async (req, res) => {
         quote.dormant,
         quote.nonTrading,
         quote.freeCompanyFormation,
+        quote.numberOfPartners,
         quote.annualTurnover,
         quote.vatReturns,
         quote.payrollSelect,

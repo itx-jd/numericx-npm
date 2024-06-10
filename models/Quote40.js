@@ -9,6 +9,7 @@ const Quote40Schema = new mongoose.Schema({
   dormant: String,
   nonTrading: String,
   freeCompanyFormation: String,
+  numberOfPartners: String,
   annualTurnover: String,
   vatReturns: String,
   payrollSelect: String,
