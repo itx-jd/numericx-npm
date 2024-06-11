@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 
 const Popup = require('./models/Popup');
 const Quote = require('./models/Quote');
@@ -17,6 +18,15 @@ const PORT = process.env.PORT || 3000;
 validCredentials = {'username': 'numericx', 'password': 'numericx@1234!'}
 
 app.use(cors()); // Use CORS middleware
+
+// Email configuration
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: 'talhayousaf4425@gmail.com',
+      pass: '03007792361'
+  }
+});
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -412,6 +422,43 @@ app.post('/download_quotes', async (req, res) => {
     console.error(err);
     res.status(500).send('Error generating Excel file');
   }
+});
+
+
+// Function to send an email
+app.post('/send-email', (req, res) => {
+  const formData = req.body;
+
+  // Prepare email data
+  const userMailOptions = {
+      from: 'talhayousaf4425@gmail.com',
+      to: formData.email,
+      subject: 'Your Form Submission',
+      text: `Thank you for your submission, ${formData.name}!<br/>Here is a summary of your submission:<br/>${JSON.stringify(formData, null, 2)}`,
+  };
+
+  const adminMailOptions = {
+      from: 'talhayousaf4425@gmail.com',
+      to: 'talhayousaf4420@gmail.com',
+      subject: 'New Form Submission',
+      text: `New form submission received:\n${JSON.stringify(formData, null, 2)}`
+  };
+
+  // Send email to user
+  transporter.sendMail(userMailOptions, (error, info) => {
+      if (error) {
+          return res.status(500).json({ error: 'Failed to send email to user.' });
+      }
+
+      // Send email to admin
+      transporter.sendMail(adminMailOptions, (error, info) => {
+          if (error) {
+              return res.status(500).json({ error: 'Failed to send email to admin.' });
+          }
+
+          res.status(200).json({ message: 'Emails sent successfully!' });
+      });
+  });
 });
 
 
