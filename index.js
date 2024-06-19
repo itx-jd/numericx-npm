@@ -499,7 +499,7 @@ app.post("/send-email", (req, res) => {
     from: "talhayousaf4425@gmail.com",
     to: formData.email,
     subject: "Your Form Submission",
-    html: `
+    text: `
       <h1>Thank you for your submission, ${formData.name}!</h1>
       <p>Here is updated summary of your submission:</p>
       <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
