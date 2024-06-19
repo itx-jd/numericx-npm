@@ -427,15 +427,39 @@ app.post('/download_quotes', async (req, res) => {
 
 // Function to send an email
 app.post('/send-email', (req, res) => {
-  const formData = req.body;
+    const formData = req.body;
 
-  // Prepare email data
-  const userMailOptions = {
+    // Prepare email data
+    const userMailOptions = {
       from: 'talhayousaf4425@gmail.com',
       to: formData.email,
       subject: 'Your Form Submission',
-      text: `Thank you for your submission, ${formData.name}!<br/>Here is a summary of your submission:<br/>${JSON.stringify(formData, null, 2)}`,
+      html: `
+          <h1>Thank you for your submission, ${formData.name}!</h1>
+          <p>Here is a summary of your submission:</p>
+          <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+              <tr><th style="text-align: left;">Field</th><th style="text-align: left;">Value</th></tr>
+              <tr><td>Name</td><td>${formData.name}</td></tr>
+              <tr><td>Email</td><td>${formData.email}</td></tr>
+              <tr><td>Phone</td><td>${formData.phone}</td></tr>
+              <tr><td>Business Type</td><td>${formData.businessType}</td></tr>
+              <tr><td>Dormant</td><td>${formData.dormant}</td></tr>
+              <tr><td>Non-Trading</td><td>${formData.nonTrading}</td></tr>
+              <tr><td>Free Company Formation</td><td>${formData.freeCompanyFormation}</td></tr>
+              <tr><td>Number of Partners</td><td>${formData.numberOfPartners}</td></tr>
+              <tr><td>Annual Turnover</td><td>${formData.annualTurnover}</td></tr>
+              <tr><td>VAT Returns</td><td>${formData.vatReturns}</td></tr>
+              <tr><td>Payroll</td><td>${formData.payrollSelect}</td></tr>
+              <tr><td>Number of Employees</td><td>${formData.numberOfEmployees}</td></tr>
+              <tr><td>Pension Scheme</td><td>${formData.pensionScheme}</td></tr>
+              <tr><td>Number of Employees Enrolling</td><td>${formData.numberOfEmployeesEnrolling}</td></tr>
+              <tr><td>Bookkeeping</td><td>${formData.bookkeeping}</td></tr>
+              <tr><td>Number of Transactions</td><td>${formData.numberOfTransactions}</td></tr>
+              <tr><td>Quote Price</td><td>${formData.quotePrice}</td></tr>
+          </table>
+      `,
   };
+
 
   const adminMailOptions = {
       from: 'talhayousaf4425@gmail.com',
