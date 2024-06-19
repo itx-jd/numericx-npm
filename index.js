@@ -501,7 +501,7 @@ app.post("/send-email", (req, res) => {
     subject: "Your Form Submission",
     html: `
           <h1>Thank you for your submission, ${formData.name}!</h1>
-          <p>Here is a summary of your submission:</p>
+          <p>Here is updated summary of your submission:</p>
           <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
               <tr><th style="text-align: left;">Field</th><th style="text-align: left;">Value</th></tr>
               <tr><td>Name</td><td>${formData.name}</td></tr>
