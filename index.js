@@ -425,14 +425,14 @@ app.post('/download_quotes', async (req, res) => {
 });
 
 
-app.post("/send-email", (req, res) => {
+app.post('/send-email', (req, res) => {
   const formData = req.body;
 
   // Prepare email data
   const userMailOptions = {
-    from: "talhayousaf4425@gmail.com",
+    from: 'talhayousaf4425@gmail.com',
     to: formData.email,
-    subject: "Your Form Submission",
+    subject: 'Your Form Submission',
     html: `
       <h1>Thank you for your submission, ${formData.name}!</h1>
       <p>Here is updated summary of your submission:</p>
@@ -460,9 +460,9 @@ app.post("/send-email", (req, res) => {
   };
 
   const adminMailOptions = {
-    from: "talhayousaf4425@gmail.com",
-    to: "talhayousaf4420@gmail.com",
-    subject: "New Form Submission",
+    from: 'talhayousaf4425@gmail.com',
+    to: 'talhayousaf4420@gmail.com',
+    subject: 'New Form Submission',
     html: `
       <h1>New Form Submission</h1>
       <p>New form submission received:</p>
@@ -490,24 +490,24 @@ app.post("/send-email", (req, res) => {
   };
 
   // Log formData to verify its structure
-  console.log("FormData:", formData);
-  console.log("User Mail Options:", userMailOptions);
+  console.log('FormData:', formData);
+  console.log('User Mail Options:', userMailOptions);
 
   // Send email to user
   transporter.sendMail(userMailOptions, (error, info) => {
     if (error) {
-      console.error("Error sending email to user:", error);
-      return res.status(500).json({ error: "Failed to send email to user." });
+      console.error('Error sending email to user:', error);
+      return res.status(500).json({ error: 'Failed to send email to user.' });
     }
 
     // Send email to admin
     transporter.sendMail(adminMailOptions, (error, info) => {
       if (error) {
-        console.error("Error sending email to admin:", error);
-        return res.status(500).json({ error: "Failed to send email to admin." });
+        console.error('Error sending email to admin:', error);
+        return res.status(500).json({ error: 'Failed to send email to admin.' });
       }
 
-      res.status(200).json({ message: "Emails sent successfully!" });
+      res.status(200).json({ message: 'Emails sent successfully!' });
     });
   });
 });
