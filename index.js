@@ -22,8 +22,8 @@ app.use(cors()); // Use CORS middleware
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-      user: 'talhayousaf4425@gmail.com',
-      pass: 'pcuk nuqw ysso bpza'
+      user: 'numericx.official@gmail.com',
+      pass: 'ndpd pkdq evdo onef'
   }
 });
 
@@ -428,39 +428,39 @@ app.post('/send-email', (req, res) => {
   const formData = req.body;
 
   // Prepare email data
-  const userMailOptions = {
-    from: 'talhayousaf4425@gmail.com',
-    to: formData.email,
-    subject: 'Your Form Submission',
-    html: `
-      <h1>Thank you for your submission, ${formData.name}!</h1>
-      <p>Here is updated summary of your submission:</p>
-      <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-        <tr><th style="text-align: left;">Field</th><th style="text-align: left;">Value</th></tr>
-        <tr><td>Name</td><td>${formData.name}</td></tr>
-        <tr><td>Email</td><td>${formData.email}</td></tr>
-        <tr><td>Phone</td><td>${formData.phone}</td></tr>
-        <tr><td>Business Type</td><td>${formData.businessType}</td></tr>
-        <tr><td>Dormant</td><td>${formData.dormant}</td></tr>
-        <tr><td>Non-Trading</td><td>${formData.nonTrading}</td></tr>
-        <tr><td>Free Company Formation</td><td>${formData.freeCompanyFormation}</td></tr>
-        <tr><td>Number of Partners</td><td>${formData.numberOfPartners}</td></tr>
-        <tr><td>Annual Turnover</td><td>${formData.annualTurnover}</td></tr>
-        <tr><td>VAT Returns</td><td>${formData.vatReturns}</td></tr>
-        <tr><td>Payroll</td><td>${formData.payrollSelect}</td></tr>
-        <tr><td>Number of Employees</td><td>${formData.numberOfEmployees}</td></tr>
-        <tr><td>Pension Scheme</td><td>${formData.pensionScheme}</td></tr>
-        <tr><td>Number of Employees Enrolling</td><td>${formData.numberOfEmployeesEnrolling}</td></tr>
-        <tr><td>Bookkeeping</td><td>${formData.bookkeeping}</td></tr>
-        <tr><td>Number of Transactions</td><td>${formData.numberOfTransactions}</td></tr>
-        <tr><td>Quote Price</td><td>${formData.quotePrice}</td></tr>
-      </table>
-    `,
-  };
+  // const userMailOptions = {
+  //   from: 'numericx.official@gmail.com',
+  //   to: formData.email,
+  //   subject: 'Your Form Submission',
+  //   html: `
+  //     <h1>Thank you for your submission, ${formData.name}!</h1>
+  //     <p>Here is updated summary of your submission:</p>
+  //     <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  //       <tr><th style="text-align: left;">Field</th><th style="text-align: left;">Value</th></tr>
+  //       <tr><td>Name</td><td>${formData.name}</td></tr>
+  //       <tr><td>Email</td><td>${formData.email}</td></tr>
+  //       <tr><td>Phone</td><td>${formData.phone}</td></tr>
+  //       <tr><td>Business Type</td><td>${formData.businessType}</td></tr>
+  //       <tr><td>Dormant</td><td>${formData.dormant}</td></tr>
+  //       <tr><td>Non-Trading</td><td>${formData.nonTrading}</td></tr>
+  //       <tr><td>Free Company Formation</td><td>${formData.freeCompanyFormation}</td></tr>
+  //       <tr><td>Number of Partners</td><td>${formData.numberOfPartners}</td></tr>
+  //       <tr><td>Annual Turnover</td><td>${formData.annualTurnover}</td></tr>
+  //       <tr><td>VAT Returns</td><td>${formData.vatReturns}</td></tr>
+  //       <tr><td>Payroll</td><td>${formData.payrollSelect}</td></tr>
+  //       <tr><td>Number of Employees</td><td>${formData.numberOfEmployees}</td></tr>
+  //       <tr><td>Pension Scheme</td><td>${formData.pensionScheme}</td></tr>
+  //       <tr><td>Number of Employees Enrolling</td><td>${formData.numberOfEmployeesEnrolling}</td></tr>
+  //       <tr><td>Bookkeeping</td><td>${formData.bookkeeping}</td></tr>
+  //       <tr><td>Number of Transactions</td><td>${formData.numberOfTransactions}</td></tr>
+  //       <tr><td>Quote Price</td><td>${formData.quotePrice}</td></tr>
+  //     </table>
+  //   `,
+  // };
 
   const adminMailOptions = {
-    from: 'talhayousaf4425@gmail.com',
-    to: 'numericx.official@gmail.com',
+    from: 'numericx.official@gmail.com',
+    to: 'jawad2k01@gmail.com',
     subject: 'New Form Submission',
     html: `
       <h1>New Form Submission</h1>
@@ -488,18 +488,11 @@ app.post('/send-email', (req, res) => {
     `,
   };
 
-  // Log formData to verify its structure
-  console.log('FormData:', formData);
-  console.log('User Mail Options:', userMailOptions);
+  // // Log formData to verify its structure
+  // console.log('FormData:', formData);
+  // console.log('User Mail Options:', userMailOptions);
 
-  // Send email to user
-  transporter.sendMail(userMailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email to user:', error);
-      return res.status(500).json({ error: 'Failed to send email to user.' });
-    }
-
-    // Send email to admin
+  // Send email to admin
     transporter.sendMail(adminMailOptions, (error, info) => {
       if (error) {
         console.error('Error sending email to admin:', error);
@@ -508,7 +501,15 @@ app.post('/send-email', (req, res) => {
 
       res.status(200).json({ message: 'Emails sent successfully!' });
     });
-  });
+
+  // // Send email to user
+  // transporter.sendMail(userMailOptions, (error, info) => {
+  //   if (error) {
+  //     console.error('Error sending email to user:', error);
+  //     return res.status(500).json({ error: 'Failed to send email to user.' });
+  //   }
+  // });
+  
 });
 
 
