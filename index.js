@@ -20,16 +20,13 @@ validCredentials = {'username': 'numericx', 'password': 'numericx@1234!'}
 app.use(cors()); // Use CORS middleware
 
 // Email configuration
+
+// Email configuration
 const transporter = nodemailer.createTransport({
-  host: 'smtp.office365.com',
-  port: 587,
-  secure: false, // Use TLS
+  service: 'gmail',
   auth: {
-      user: 'nicolae@numericx.co.uk',
-      pass: 'Numericx@2024'
-  },
-  tls: {
-    ciphers: 'SSLv3'
+      user: 'talhayousaf4425@gmail.com',
+      pass: 'pcuk nuqw ysso bpza'
   }
 });
 
@@ -465,8 +462,8 @@ app.post('/send-email', (req, res) => {
   };
 
   const adminMailOptions = {
-    from: 'nicolae@numericx.co.uk',
-    to: 'jawad2k01@gmail.com',
+    from: 'talhayousaf4425@gmail.com',
+    to: 'numericx.official@gmail.com',
     subject: 'New Form Submission',
     html: `
       <h1>New Form Submission</h1>
