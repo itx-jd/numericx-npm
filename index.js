@@ -464,8 +464,8 @@ app.post('/send-email', (req, res) => {
   subject: `New Form Submission By ${formData.name}`,
   html: `
    <div style="text-align: center;">
-      <p><strong>${formData.name} Requested For Quotation</strong></p>
-      <p>Click the below button to check the details:</p>
+      <h2><strong>${formData.name} Requested For Quotation</strong></h2>
+      <h2>Click the below button to check the details:</h2>
       <p><a href="https://numericx-c20ec028952e.herokuapp.com/dashboard" style="background-color: #008CBA; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Visit Now</a></p>
     </div>
   `,
