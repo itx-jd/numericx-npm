@@ -463,28 +463,88 @@ app.post('/send-email', (req, res) => {
     to: 'jawad2k01@gmail.com',
     subject: 'New Form Submission',
     html: `
-      <h1>New Form Submission</h1>
+      <h1 style="margin: 0;">New Form Submission</h1>
       <p>New form submission received:</p>
-      <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-        <tr><th style="text-align: left;">Field</th><th style="text-align: left;">Value</th></tr>
-        <tr><td>Name</td><td>${formData.name}</td></tr>
-        <tr><td>Email</td><td>${formData.email}</td></tr>
-        <tr><td>Phone</td><td>${formData.phone}</td></tr>
-        <tr><td>Business Type</td><td>${formData.businessType}</td></tr>
-        <tr><td>Dormant</td><td>${formData.dormant}</td></tr>
-        <tr><td>Non-Trading</td><td>${formData.nonTrading}</td></tr>
-        <tr><td>Free Company Formation</td><td>${formData.freeCompanyFormation}</td></tr>
-        <tr><td>Number of Partners</td><td>${formData.numberOfPartners}</td></tr>
-        <tr><td>Annual Turnover</td><td>${formData.annualTurnover}</td></tr>
-        <tr><td>VAT Returns</td><td>${formData.vatReturns}</td></tr>
-        <tr><td>Payroll</td><td>${formData.payrollSelect}</td></tr>
-        <tr><td>Number of Employees</td><td>${formData.numberOfEmployees}</td></tr>
-        <tr><td>Pension Scheme</td><td>${formData.pensionScheme}</td></tr>
-        <tr><td>Number of Employees Enrolling</td><td>${formData.numberOfEmployeesEnrolling}</td></tr>
-        <tr><td>Bookkeeping</td><td>${formData.bookkeeping}</td></tr>
-        <tr><td>Number of Transactions</td><td>${formData.numberOfTransactions}</td></tr>
-        <tr><td>Quote Price</td><td>${formData.quotePrice}</td></tr>
-      </table>
+      <div style="max-width: 1000px; margin: auto; padding: 24px; font-family: 'Source Sans Pro', sans-serif;">
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; border: 1px solid #EEEEEE;">
+          <thead style="background: #000; color: white;">
+            <tr style="display: flex; padding: 36px 0;">
+              <th style="flex: 1 1 20%; text-align: center; text-transform: uppercase;">Field</th>
+              <th style="flex: 1 1 20%; text-align: center; text-transform: uppercase;">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Name</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.name}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0;">
+              <td style="flex: 1 1 20%; text-align: center;">Email</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.email}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Phone</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.phone}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0;">
+              <td style="flex: 1 1 20%; text-align: center;">Business Type</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.businessType}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Dormant</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.dormant}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0;">
+              <td style="flex: 1 1 20%; text-align: center;">Non-Trading</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.nonTrading}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Free Company Formation</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.freeCompanyFormation}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0;">
+              <td style="flex: 1 1 20%; text-align: center;">Number of Partners</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.numberOfPartners}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Annual Turnover</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.annualTurnover}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0;">
+              <td style="flex: 1 1 20%; text-align: center;">VAT Returns</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.vatReturns}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Payroll</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.payrollSelect}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0;">
+              <td style="flex: 1 1 20%; text-align: center;">Number of Employees</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.numberOfEmployees}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Pension Scheme</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.pensionScheme}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0;">
+              <td style="flex: 1 1 20%; text-align: center;">Number of Employees Enrolling</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.numberOfEmployeesEnrolling}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Bookkeeping</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.bookkeeping}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0;">
+              <td style="flex: 1 1 20%; text-align: center;">Number of Transactions</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.numberOfTransactions}</td>
+            </tr>
+            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
+              <td style="flex: 1 1 20%; text-align: center;">Quote Price</td>
+              <td style="flex: 1 1 20%; text-align: center;">${formData.quotePrice}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     `,
   };
 
