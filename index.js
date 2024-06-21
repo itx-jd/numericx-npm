@@ -12,14 +12,11 @@ const Quote100 = require('./models/Quote100');
 const excel = require('exceljs');
 const moment = require('moment');
 
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 validCredentials = {'username': 'numericx', 'password': 'numericx@1234!'}
 
 app.use(cors()); // Use CORS middleware
-
-// Email configuration
 
 // Email configuration
 const transporter = nodemailer.createTransport({
@@ -495,12 +492,12 @@ app.post('/send-email', (req, res) => {
   console.log('FormData:', formData);
   console.log('User Mail Options:', userMailOptions);
 
-  // // Send email to user
-  // transporter.sendMail(userMailOptions, (error, info) => {
-  //   if (error) {
-  //     console.error('Error sending email to user:', error);
-  //     return res.status(500).json({ error: 'Failed to send email to user.' });
-  //   }
+  // Send email to user
+  transporter.sendMail(userMailOptions, (error, info) => {
+    if (error) {
+      console.error('Error sending email to user:', error);
+      return res.status(500).json({ error: 'Failed to send email to user.' });
+    }
 
     // Send email to admin
     transporter.sendMail(adminMailOptions, (error, info) => {
