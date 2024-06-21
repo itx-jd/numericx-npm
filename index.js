@@ -460,7 +460,7 @@ app.post('/send-email', (req, res) => {
 
   const adminMailOptions = {
   from: 'numericx.official@gmail.com',
-  to: 'jawad2k01@gmail.com',
+  to: 'owais@numericx.co.uk',
   subject: `New Form Submission By ${formData.name}`,
   html: `
    <div style="text-align: center;">
