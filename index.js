@@ -21,10 +21,15 @@ app.use(cors()); // Use CORS middleware
 
 // Email configuration
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.office365.com',
+  port: 587,
+  secure: false, // Use TLS
   auth: {
-      user: 'talhayousaf4425@gmail.com',
-      pass: 'pcuk nuqw ysso bpza'
+      user: 'nicolae@numericx.co.uk',
+      pass: 'Numericx@2024'
+  },
+  tls: {
+    ciphers: 'SSLv3'
   }
 });
 
@@ -460,8 +465,8 @@ app.post('/send-email', (req, res) => {
   };
 
   const adminMailOptions = {
-    from: 'talhayousaf4425@gmail.com',
-    to: 'talhayousaf4420@gmail.com',
+    from: 'nicolae@numericx.co.uk',
+    to: 'jawad2k01@gmail.com',
     subject: 'New Form Submission',
     html: `
       <h1>New Form Submission</h1>
@@ -493,12 +498,12 @@ app.post('/send-email', (req, res) => {
   console.log('FormData:', formData);
   console.log('User Mail Options:', userMailOptions);
 
-  // Send email to user
-  transporter.sendMail(userMailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email to user:', error);
-      return res.status(500).json({ error: 'Failed to send email to user.' });
-    }
+  // // Send email to user
+  // transporter.sendMail(userMailOptions, (error, info) => {
+  //   if (error) {
+  //     console.error('Error sending email to user:', error);
+  //     return res.status(500).json({ error: 'Failed to send email to user.' });
+  //   }
 
     // Send email to admin
     transporter.sendMail(adminMailOptions, (error, info) => {
