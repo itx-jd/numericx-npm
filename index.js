@@ -459,94 +459,15 @@ app.post('/send-email', (req, res) => {
   // };
 
   const adminMailOptions = {
-    from: 'numericx.official@gmail.com',
-    to: 'jawad2k01@gmail.com',
-    subject: 'New Form Submission',
-    html: `
-      <h1 style="margin: 0;">New Form Submission</h1>
-      <p>New form submission received:</p>
-      <div style="max-width: 1000px; margin: auto; padding: 24px; font-family: 'Source Sans Pro', sans-serif;">
-        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%; border: 1px solid #EEEEEE;">
-          <thead style="background: #000; color: white;">
-            <tr style="display: flex; padding: 36px 0;">
-              <th style="flex: 1 1 20%; text-align: center; text-transform: uppercase;">Field</th>
-              <th style="flex: 1 1 20%; text-align: center; text-transform: uppercase;">Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Name</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.name}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0;">
-              <td style="flex: 1 1 20%; text-align: center;">Email</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.email}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Phone</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.phone}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0;">
-              <td style="flex: 1 1 20%; text-align: center;">Business Type</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.businessType}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Dormant</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.dormant}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0;">
-              <td style="flex: 1 1 20%; text-align: center;">Non-Trading</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.nonTrading}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Free Company Formation</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.freeCompanyFormation}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0;">
-              <td style="flex: 1 1 20%; text-align: center;">Number of Partners</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.numberOfPartners}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Annual Turnover</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.annualTurnover}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0;">
-              <td style="flex: 1 1 20%; text-align: center;">VAT Returns</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.vatReturns}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Payroll</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.payrollSelect}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0;">
-              <td style="flex: 1 1 20%; text-align: center;">Number of Employees</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.numberOfEmployees}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Pension Scheme</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.pensionScheme}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0;">
-              <td style="flex: 1 1 20%; text-align: center;">Number of Employees Enrolling</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.numberOfEmployeesEnrolling}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Bookkeeping</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.bookkeeping}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0;">
-              <td style="flex: 1 1 20%; text-align: center;">Number of Transactions</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.numberOfTransactions}</td>
-            </tr>
-            <tr style="display: flex; padding: 36px 0; background: #EEEEEE;">
-              <td style="flex: 1 1 20%; text-align: center;">Quote Price</td>
-              <td style="flex: 1 1 20%; text-align: center;">${formData.quotePrice}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    `,
-  };
+  from: 'numericx.official@gmail.com',
+  to: 'jawad2k01@gmail.com',
+  subject: `New Form Submission By ${formData.name}`,
+  html: `
+    <p>${formData.name} Requested For Quotation</p>
+    <p>Click the below button to check the details:</p>
+    <p><a href="https://numericx-c20ec028952e.herokuapp.com/dashboard" style="background-color: #008CBA; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Visit Now</a></p>
+  `,
+};
 
   // // Log formData to verify its structure
   // console.log('FormData:', formData);
